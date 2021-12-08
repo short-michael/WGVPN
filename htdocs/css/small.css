@@ -1,0 +1,120 @@
+
+body {
+    background-color: darkblue;
+    font-family: 'Open Sans', serif;
+    color: white;
+    margin: 0;
+}
+
+header {
+    background-color: royalblue;
+    color: #afbcbb;
+    text-align: center;
+    padding: 2%;
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+}
+
+header h1 {
+    font-size: 1.1rem;
+    vertical-align: middle;
+}
+
+nav {
+    width: 100%;
+    background-color: #555;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    padding: 20px 16px;
+    text-decoration: none;
+    border: 1px solid white;
+}
+
+nav ul li a:link {
+    background-color: #555;
+    color: white;
+}
+
+nav ul li a:hover {
+    background-color: #4CAF50;
+    color:  white;
+}
+
+nav ul li a:active {
+    background-color: white;
+    color: #555;
+}
+
+nav ul li {
+    text-align: center;
+}
+
+
+main {
+    padding: 2%;
+}
+
+footer {
+    background-color: royalblue;
+    color: #afbcbb;
+    padding: 2%;
+    text-align: center;
+}
+
+#copyright {
+    font-size: .6rem;
+    color: white;
+}
+
+.mainContainer {
+    margin: 10px 0 10px 0;
+    min-height: 100px;
+    border-color: skyblue;
+    border-radius: 20px;
+    border-style: solid;
+}
+
+.innerContainer {
+    margin: 5px;
+    border-color: skyblue;
+    border-radius: 20px;
+    border-style: solid;
+    padding: 20px;
+}
+
+.submit,button {
+    padding: 7px 15px 7px 15px;
+    border-radius: 9px;
+    font-size: 21px;
+    font-family: monospace;
+    font-weight: bold;
+    transition-property: padding, font-size;
+    transition-duration: 2s;
+}
+
+#headerImage {
+    float: left;
+    max-width: 50%;
+    animation-name: flipper;
+    animation-duration: 5s;
+}
+
+@keyframes flipper {
+    0% {transform: perspective(600px) scale3d(1, 1, 1) translate3d(0, 0, 0) rotate3d(0, 1, 0, -360deg);}
+    40% {transform: perspective(600px) scale3d(1, 1, 1) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -190deg);}
+    80% {transform: perspective(600px) scale3d(0.95, 0.95, 0.95) translate3d(0, 0, 0); animation-timing-function: ease-in;}
+    100% {transform: perspective(600px) scale3d(1, 1, 1) translate3d(0, 0, 0) rotate3d(0, 1, 0, 0deg); animation-timing-function: ease-in;}
+}
+
+.clearfix {
+    overflow: auto;
+}

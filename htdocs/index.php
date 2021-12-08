@@ -1,0 +1,53 @@
+<?php
+
+echo "<!DOCTYPE html>\n";
+echo "<html lang=\"en-US\">\n";
+echo "<head>\n";
+echo "    <meta charset=\"utf-8\">\n";
+echo "    <meta name=\"author\" content=\"Michael Short\">\n";
+echo "    <meta name=\"description\" content=\"CIT490 VPN Web Configuration Interface\">\n";
+echo "    <title>VPN Device Main Menu</title>\n";
+echo "    <link href=\"css/normalize.css\" rel=\"stylesheet\"> <!-- normalize useragent/browser defaults -->\n";
+echo "    <link href=\"https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap\" rel=\"stylesheet\">\n";
+echo "    <link href=\"css/small.css\"     rel=\"stylesheet\"> <!-- default styles - small/phone views -->\n";
+echo "    <link href=\"css/medium.css\"    rel=\"stylesheet\"> <!-- medium/tablet views -->\n";
+echo "    <link href=\"css/large.css\"     rel=\"stylesheet\"> <!-- large/wide/desktop views -->\n";
+echo "</head>\n";
+echo "<body>\n";
+echo "\n";
+echo "    <header class=\"clearfix\" includefile=\"header.html\"></header>\n";
+echo "\n";
+echo "    <nav id=\"navMenu\" includefile=\"nav.html\"></nav>\n";
+echo "\n";
+echo "    <main id=\"main\">\n";
+echo "        <div id=\"networkConfig\" class=\"mainContainer\">\n";
+echo "            <div class=\"innerContainer\">\n";
+echo "                <form method=\"post\" action=\"updateAdminPassword.php\">\n";
+echo "                  <p>Change Admin Password</p>\n";
+echo "                  <p>\n";
+echo "                    <label for=\"updatePassTop\">New Password:</label><br>\n";
+echo "                    <input name=\"newpass\" class=\"passwordField\" type=\"text\" id=\"updatePassTop\" size=\"20\" maxlength=\"20\" value=\"\">\n";
+echo "                  </p>\n";
+echo "                  <p>\n";
+echo "                    <label for=\"updatePassBottom\">Verify Password:</label><br>\n";
+echo "                    <input name=\"verifypass\" class=\"passwordField\" type=\"text\" id=\"updatePassBottom\" size=\"20\" maxlength=\"20\" value=\"\">\n";
+echo "                  </p>\n";
+echo "                  <input class=\"submit\" type=\"submit\" value=\"Update Password\">\n";
+echo "                </form>\n";
+echo "            </div>\n";
+echo "            <div class=\"innerContainer\">\n";
+echo "                <form method=\"get\" action=\"applyFactoryDefaults.php\">\n";
+echo "                  <p>Reset to Factory Defaults</p>\n";
+echo "                  <input class=\"submit\" type=\"submit\" value=\"Restore Factory Defaults\">\n";
+echo "                </form>\n";
+echo "            </div>\n";
+echo "        </div>\n";
+echo "    </main>\n";
+echo "\n";
+echo "    <footer includefile=\"footer.html\"></footer>\n";
+echo "</body>\n";
+echo "<script src=\"js/include.js\"></script>\n";
+echo "\n";
+echo "</html>\n";
+
+?>

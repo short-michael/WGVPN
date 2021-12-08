@@ -1,0 +1,30 @@
+#!/bin/bash
+#
+# /etc/rc.d/rc.local:  Local system initialization script.
+#
+# Put any local startup commands in here.  Also, if you have
+# anything that needs to be run at shutdown time you can
+# make an /etc/rc.d/rc.local_shutdown script and put those
+# commands in there.
+
+# Start Script that will try to set date and time from a time server online
+if [ -x /usr/local/sbin/updateDateTime.sh ]; then
+	/usr/local/sbin/updateDateTime.sh &
+fi
+
+# block http requests on eth0 (Outside)
+iptables -A INPUT -i eth0 -p tcp --destination-port 80 -j DROP
+
+
+# Turn On Forwarding by default
+echo 1 > /proc/sys/net/ipv4/ip_forward
+
+# Create Private and Public VPN Keys if there is no private key file at boot
+if [ ! -f /etc/wireguard/server_private.key ]; then
+	/usr/local/vpn/generateVPNServerKeys.sh
+fi
+
+# Start WireGuard if there is a valid config file
+if [ -f /etc/wireguard/wg0.conf ]; then
+	/usr/bin/wg-quick up wg0 &
+fi
