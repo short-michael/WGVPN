@@ -16,7 +16,7 @@ $serverConfig = json_decode(shell_exec('/usr/local/vpn/runElevated vpnConfig'), 
 $clientKeys = json_decode(shell_exec('/usr/local/vpn/runElevated clientkeys'), true);
 
 // If public Key has a / character in it at the beginning area then we generate again
-while (strpos(substr($clientKeys["ClientKeys"]["privatekey"], 0, 10), "/") !== False ) {
+while (strpos(substr($clientKeys["ClientKeys"]["publickey"], 0, 10), "/") !== False ) {
 	$clientKeys = json_decode(shell_exec('/usr/local/vpn/runElevated clientkeys'), true);
 }
 
@@ -109,6 +109,7 @@ echo "                <input type=\"hidden\" name=\"srvPublicKey\" value=\"" . $
 echo "                <input type=\"hidden\" name=\"outsideAddress\" value=\"" . $outsideAddress . "\">\n";
 echo "                <input type=\"hidden\" name=\"vpnPort\" value=\"" . $vpnPort . "\">\n";
 echo "                <input type=\"hidden\" name=\"internalNetworkDns\" value=\"" . $internalNetworkDns . "\">\n";
+echo "                <input type=\"hidden\" name=\"existingPeers\" value=\"" . $peers . "\">\n";
 
 echo "                <input class=\"submit\" type=\"submit\" value=\"Add Client\">\n";
 echo "            </div>\n";

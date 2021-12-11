@@ -7,6 +7,11 @@
 # make an /etc/rc.d/rc.local_shutdown script and put those
 # commands in there.
 
+# Remove the Persistent Network Udev Rules
+if [ -f /etc/udev/rules.d/70-persistent-net.rules ]; then
+	rm -f /etc/udev/rules.d/70-persistent-net.rules
+fi
+
 # Start Script that will try to set date and time from a time server online
 if [ -x /usr/local/sbin/updateDateTime.sh ]; then
 	/usr/local/sbin/updateDateTime.sh &

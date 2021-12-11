@@ -29,7 +29,33 @@ rm -f /root/.bash_history
 rm -rf /root/.ssh
 
 cd /
-tar xvfz /root/defaults.tgz
+/usr/bin/tar xvfz /root/defaults.tgz
+
+# ensure services that should be on/off are set properly
+chmod +x /etc/rc.d/rc.acpid
+chmod +x /etc/rc.d/rc.cpufreq
+chmod +x /etc/rc.d/rc.crond
+chmod +x /etc/rc.d/rc.elogind
+chmod +x /etc/rc.d/rc.httpd
+chmod +x /etc/rc.d/rc.inet1
+chmod +x /etc/rc.d/rc.inet2
+chmod +x /etc/rc.d/rc.local
+chmod +x /etc/rc.d/rc.loop
+chmod +x /etc/rc.d/rc.messagebus
+chmod +x /etc/rc.d/rc.modules*
+chmod +x /etc/rc.d/rc.networkmanager
+chmod +x /etc/rc.d/rc.setterm
+chmod +x /etc/rc.d/rc.syslog
+chmod +x /etc/rc.d/rc.sysvinit
+chmod +x /etc/rc.d/rc.udev
+
+chmod -x /etc/rc.d/rc.mysqld
+chmod -x /etc/rc.d/rc.ntpd
+chmod -x /etc/rc.d/rc.php-fpm
+chmod -x /etc/rc.d/rc.saslauthd
+chmod -x /etc/rc.d/rc.serial
+chmod -x /etc/rc.d/rc.sshd
+
 sync
-reboot
+/sbin/reboot
 

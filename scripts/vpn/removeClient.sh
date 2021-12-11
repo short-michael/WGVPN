@@ -34,11 +34,13 @@ fi
 START=0
 END=0
 FOUND=0
-#currentLine=1
+currentPeer=0
 currentLine=0
+
 while read line; do
 	(( currentLine++ ))
 	if [[ "${line}" =~ "[Peer]"* ]]; then
+		(( currentPeer++ ))
 		if [ $START -ne 0 ]; then
 			if [ $FOUND -ne 0 ]; then
 				break
@@ -64,6 +66,9 @@ done <<< $(cat /etc/wireguard/wg0.conf)
 if [ $FOUND -ne 0 ]; then
 #	echo "Found Peer Section to remove [$START to $END]"
 	currentLine=1
+	if [ $currentPeer -eq 1 ]; then
+		(( START++ ))
+	fi
 	while read confLine; do
 		if [ $currentLine -lt $START ] || [ $currentLine -gt $END ]; then
 			echo "${confLine}" >> ${TMPFILE}

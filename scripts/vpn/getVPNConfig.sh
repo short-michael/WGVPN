@@ -137,7 +137,7 @@ if [ $existingConfig -eq 0 ]; then
 	if [ -f /etc/wireguard/server_private.key ]; then
 		prvKey=`head -n1 /etc/wireguard/server_private.key | xargs`
 		if [ $entries -gt 0 ]; then
-			echo -e "\n\t\"Interface\": {"
+			echo -e ",\n\t\"Interface\": {"
 		else
 			echo -e "\t\"Interface\": {"
 		fi
@@ -150,7 +150,7 @@ if [ $existingConfig -eq 0 ]; then
 			echo -en ",\n\t\t\"publickey\": \"${pubKey}\""
 		else
 			if [ $entries -gt 0 ]; then
-				echo -e "\n\t\"Interface\": {"
+				echo -e ",\n\t\"Interface\": {"
 			else
 				echo -e "\t\"Interface\": {"
 			fi

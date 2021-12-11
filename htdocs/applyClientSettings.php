@@ -9,6 +9,7 @@ $srvPublicKey = $_POST["srvPublicKey"];
 $outsideAddress = $_POST["outsideAddress"];
 $vpnPort = $_POST["vpnPort"];
 $internalNetworkDns = $_POST["internalNetworkDns"];
+$existingPeers = $_POST["existingPeers"];
 
 $greenLight = True;
 $errorString = "";
@@ -61,12 +62,14 @@ function isValidCidrList($CIDRList) {
 	return $result;
 }
 
-function CreateServerPeerFile ($clientPublicKey, $clientIp ) {
+function CreateServerPeerFile ($clientPublicKey, $clientIp, $currentPeers ) {
 	$outFile = "/var/www/htdocs/data/wgPeer.conf";
 	unlink($outFile);
 	$myPeerConfigFile = fopen( $outFile , "w") or die("Unable to open config file for output!");
 
-	fwrite($myPeerConfigFile, "\n");
+	if ($currentPeers > 0) {
+		fwrite($myPeerConfigFile, "\n");
+	}
 	fwrite($myPeerConfigFile, "[Peer]\n");
 	fwrite($myPeerConfigFile, "PublicKey = " . $clientPublicKey . "\n");
 	fwrite($myPeerConfigFile, "AllowedIPs = " . $clientIp . "\n");
@@ -209,7 +212,7 @@ echo "             <p>Creating Config Files</p>\n";
 /* BEGIN CONFIG FILE CREATION */
 
 $keyPrefix = substr($clientPublic, 0, 10);
-CreateServerPeerFile ($clientPublic, $clientIp );
+CreateServerPeerFile ($clientPublic, $clientIp, $existingPeers );
 CreateClientInternalFile ($keyPrefix, $clientPrivate, $clientIp, $srvPublicKey, $networks, $outsideAddress, $vpnPort, $keepAlive );
 CreateClientAllTrafficFile ($keyPrefix, $clientPrivate, $clientIp, $srvPublicKey, $outsideAddress, $vpnPort, $keepAlive, $internalNetworkDns);
 
