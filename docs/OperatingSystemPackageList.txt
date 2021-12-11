@@ -1,4 +1,4 @@
-Operating System used is Slackware 15.0 ARM
+Operating System used in this project Slackware 15.0 ARM (current)
 
 Installation Information and Installer Packages are available here:
 
@@ -7,7 +7,7 @@ https://sarpi.penthux.net/index.php?p=rpi4getarmv7stable
 A knowledge of installing and configuring Linux for RasPi is preferred.
 By installing the same packages, the OS will be very close to what is running on the downloadable image file.
 
-This list is provided to have a record of what the base operating system for the device consists of.   
+This list is provided as a record to document what the base operating system for the device consists of.   
 
 Up to Date Files for Kernel and Firmware can be obtained here:
 
@@ -17,6 +17,8 @@ OS Packages can be obtained from this location:
 
 https://slackware.uk/slackwarearm/slackwarearm-current/
 
+Some Package versions currently available at the above locations may be different versions than those used to create the base OS.
+This is due to the nature of using slackware (current), although generally considered highly stable by the Slackware community it is still a work in progress.
 
 Device Operating System Consists of the Following
 Kernel and Firmware Packages:
@@ -169,3 +171,4 @@ gcc-gdc-11.2.0-arm-1
 gcc-gnat-11.2.0-arm-1
 gcc-go-11.2.0-arm-1
 gcc-objc-11.2.0-arm-1
+

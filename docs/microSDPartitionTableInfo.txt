@@ -1,0 +1,24 @@
+Here is the partition layout information used for the 64GB microSD card
+used in this project provided by the fdisk utility:
+
+root@vpn:~# fdisk -l
+Disk /dev/mmcblk0: 59.69 GiB, 64088965120 bytes, 125173760 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0x924e3642
+
+Device         Boot     Start       End   Sectors   Size Id Type
+/dev/mmcblk0p1 *           32    312447    312416 152.5M  c W95 FAT32 (LBA)
+/dev/mmcblk0p2         313344 122996735 122683392  58.5G 83 Linux
+/dev/mmcblk0p3      122996736 125173759   2177024     1G 82 Linux swap
+
+
+The media uses a DOS style partition table
+The first partition us flagged bootable and is formatted as a fat32 filesystem
+The second partition is type Linux and is formatted as an ext4 filesystem
+the third partition is of Type Linux swap
+
+This information will be useful to those attempting to recreate this configuration from scratch, 
+not using the pre-made disk image.
