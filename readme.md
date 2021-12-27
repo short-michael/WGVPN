@@ -12,6 +12,7 @@ Contains the defaults.tgz file. Which is a set of web pages, utilities, config f
 It can be applied by executing the following on an already configured system:
 
 cd /
+
 tar xvfz defaults.tgz
 
 ### docs
